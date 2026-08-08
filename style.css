@@ -10,6 +10,11 @@
   --radius: 18px;
 }
 
+
+/* ================================
+   RESET
+================================ */
+
 * {
   box-sizing: border-box;
 }
@@ -22,18 +27,36 @@ body {
   margin: 0;
   color: var(--ink);
   background: var(--paper);
-  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
   line-height: 1.65;
+}
+
+img {
+  max-width: 100%;
+  display: block;
 }
 
 a {
   color: inherit;
 }
 
+
+/* ================================
+   CONTAINER
+================================ */
+
 .container {
   width: min(calc(100% - 40px), var(--max));
   margin: 0 auto;
 }
+
 
 /* ================================
    HEADER
@@ -42,14 +65,17 @@ a {
 .site-header {
   position: sticky;
   top: 0;
-  z-index: 10;
+  z-index: 1000;
+
   background: rgba(255, 255, 255, 0.94);
   backdrop-filter: blur(14px);
+
   border-bottom: 1px solid var(--line);
 }
 
 .nav-wrap {
   height: 72px;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -70,6 +96,7 @@ a {
   text-decoration: none;
   color: var(--muted);
   font-size: 0.92rem;
+  transition: color 0.2s ease;
 }
 
 .nav a:hover {
@@ -78,10 +105,16 @@ a {
 
 .nav-toggle {
   display: none;
+
   border: 0;
   background: none;
+
   font-size: 1.4rem;
+  color: var(--ink);
+
+  cursor: pointer;
 }
+
 
 /* ================================
    HERO
@@ -89,13 +122,21 @@ a {
 
 .hero {
   padding: 92px 0 84px;
-  background: linear-gradient(135deg, #f5f8fb 0%, #fff 58%);
+
+  background:
+    linear-gradient(
+      135deg,
+      #f5f8fb 0%,
+      #ffffff 58%
+    );
 }
 
 .hero-grid {
   display: grid;
   grid-template-columns: 1.35fr 0.65fr;
+
   align-items: center;
+
   gap: 70px;
 }
 
@@ -109,20 +150,25 @@ a {
 
 .hero h1 {
   margin: 10px 0 4px;
+
   font-size: clamp(3rem, 7vw, 5.5rem);
   line-height: 0.98;
+
   letter-spacing: -0.055em;
 }
 
 .hero h2 {
   margin: 18px 0;
+
   font-size: clamp(1.3rem, 2vw, 1.8rem);
   font-weight: 600;
+
   color: #33485b;
 }
 
 .hero-text {
   max-width: 700px;
+
   font-size: 1.15rem;
   color: var(--muted);
 }
@@ -135,26 +181,44 @@ a {
 .hero-photo img {
   width: min(330px, 78vw);
   aspect-ratio: 1;
+
   object-fit: cover;
+
   border-radius: 50%;
   border: 10px solid white;
-  box-shadow: 0 20px 60px rgba(20, 35, 51, 0.14);
+
+  box-shadow:
+    0 20px 60px rgba(20, 35, 51, 0.14);
 }
 
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
+
   gap: 12px;
+
   margin: 30px 0 18px;
 }
 
 .btn {
   display: inline-block;
+
   padding: 12px 19px;
+
   border-radius: 10px;
+
   text-decoration: none;
   font-weight: 750;
+
   border: 1px solid transparent;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
 }
 
 .btn-primary {
@@ -174,13 +238,16 @@ a {
 .hero-meta {
   display: flex;
   flex-wrap: wrap;
+
   gap: 18px;
+
   color: var(--muted);
   font-size: 0.9rem;
 }
 
+
 /* ================================
-   SECTIONS
+   GENERAL SECTIONS
 ================================ */
 
 .section {
@@ -193,14 +260,18 @@ a {
 
 .two-col {
   display: grid;
+
   grid-template-columns: 0.85fr 1.15fr;
+
   gap: 80px;
 }
 
 .section h2 {
   margin: 8px 0 0;
+
   font-size: clamp(2rem, 4vw, 3.2rem);
   line-height: 1.08;
+
   letter-spacing: -0.04em;
 }
 
@@ -213,22 +284,40 @@ a {
   margin-top: 18px;
 }
 
+
 /* ================================
    SKILLS
 ================================ */
 
 .skill-grid {
   display: grid;
+
   grid-template-columns: repeat(3, 1fr);
+
   gap: 16px;
+
   margin-top: 28px;
 }
 
 .skill-card {
   background: white;
+
   border: 1px solid var(--line);
+
   border-radius: var(--radius);
+
   padding: 24px;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.skill-card:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 12px 30px rgba(20, 35, 51, 0.08);
 }
 
 .skill-card h3 {
@@ -238,67 +327,94 @@ a {
 .tags {
   display: flex;
   flex-wrap: wrap;
+
   gap: 8px;
 }
 
 .tags span {
   padding: 6px 9px;
+
   background: var(--soft);
+
   border-radius: 999px;
+
   color: #3f5365;
+
   font-size: 0.82rem;
 }
 
+
 /* ================================
-   EXPERIENCE
+   EXPERIENCE TIMELINE
 ================================ */
 
 .timeline {
   margin-top: 28px;
+
   border-left: 2px solid var(--line);
 }
 
 .timeline-item {
   display: grid;
+
   grid-template-columns: 180px 1fr;
+
   gap: 35px;
-  padding: 0 0 48px 28px;
+
+  padding:
+    0
+    0
+    48px
+    28px;
+
   position: relative;
 }
 
 .timeline-item::before {
   content: "";
+
   position: absolute;
+
   left: -7px;
   top: 5px;
+
   width: 12px;
   height: 12px;
+
   border-radius: 50%;
+
   background: var(--accent);
 }
 
 .timeline-date {
   color: var(--accent);
+
   font-weight: 750;
   font-size: 0.9rem;
 }
 
 .timeline h3 {
   margin: 0;
+
   font-size: 1.25rem;
 }
 
 .timeline h4 {
   margin: 4px 0 12px;
+
   color: var(--muted);
+
   font-weight: 600;
 }
 
 .timeline ul {
   margin: 0;
+
   padding-left: 20px;
+
   color: var(--muted);
 }
+
 
 /* ================================
    EDUCATION
@@ -306,14 +422,19 @@ a {
 
 .credential {
   display: flex;
+
   gap: 18px;
+
   padding: 18px 0;
+
   border-bottom: 1px solid var(--line);
 }
 
 .credential-type {
   color: var(--accent);
+
   font-weight: 850;
+
   min-width: 48px;
 }
 
@@ -336,11 +457,13 @@ a {
 
 .cert-list li {
   margin: 7px 0;
+
   color: var(--muted);
 }
 
+
 /* ================================
-   CONTACT
+   CONTACT SECTION
 ================================ */
 
 .contact-section {
@@ -358,60 +481,116 @@ a {
 
 .contact-grid {
   display: grid;
+
   grid-template-columns: 1fr 1fr;
+
   gap: 80px;
+
   align-items: center;
 }
 
 .contact-card {
   border: 1px solid rgba(255, 255, 255, 0.16);
+
   border-radius: var(--radius);
+
   overflow: hidden;
+
+  background: rgba(255, 255, 255, 0.015);
 }
 
 .contact-card a {
   display: block;
+
   padding: 20px 24px;
+
   text-decoration: none;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+
+  border-bottom:
+    1px solid rgba(255, 255, 255, 0.12);
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
 }
 
 .contact-card a:last-child {
   border-bottom: 0;
 }
 
+.contact-card a:hover {
+  background: rgba(255, 255, 255, 0.04);
+}
+
 .contact-card span {
   display: block;
+
   color: #9eb0bf;
+
   font-size: 0.78rem;
+
   text-transform: uppercase;
+
   letter-spacing: 0.1em;
 }
 
 .contact-card strong {
   display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-top: 4px;
-  color: white;
-}
 
-.contact-link {
-  display: block;
-  text-decoration: none;
-  color: inherit;
+  align-items: center;
+
+  gap: 10px;
+
+  margin-top: 4px;
+
+  color: white;
 }
 
 .contact-link:hover strong {
   color: #8bd1d4;
 }
 
+
+/* ================================
+   CONTACT ICONS
+================================ */
+
 .contact-icon {
   width: 20px;
   height: 20px;
+
+  min-width: 20px;
+
+  display: inline-block;
+
+  flex: 0 0 20px;
+
   fill: currentColor;
-  flex-shrink: 0;
 }
+
+
+/* ================================
+   FOOTER
+================================ */
+
+footer {
+  background: #0d1924;
+
+  color: #94a6b5;
+
+  padding: 24px 0;
+
+  font-size: 0.82rem;
+}
+
+.footer-wrap {
+  display: flex;
+
+  justify-content: space-between;
+
+  gap: 20px;
+}
+
 
 /* ================================
    FLOATING WHATSAPP
@@ -419,23 +598,28 @@ a {
 
 .floating-whatsapp {
   position: fixed;
-  right: 28px;
-  bottom: 28px;
 
-  width: 60px;
-  height: 60px;
+  right: 24px;
+  bottom: 24px;
+
+  width: 58px;
+  height: 58px;
 
   display: flex;
+
   align-items: center;
   justify-content: center;
 
   background: #25d366;
-  color: #ffffff;
+
+  color: white;
 
   border-radius: 50%;
+
   text-decoration: none;
 
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.22);
+  box-shadow:
+    0 6px 20px rgba(0, 0, 0, 0.25);
 
   z-index: 9999;
 
@@ -444,51 +628,48 @@ a {
     box-shadow 0.2s ease;
 }
 
+.floating-whatsapp:hover {
+  transform: scale(1.08);
+
+  box-shadow:
+    0 9px 26px rgba(0, 0, 0, 0.3);
+}
+
 .floating-whatsapp svg {
-  width: 31px !important;
-  height: 31px !important;
-  max-width: 31px;
-  max-height: 31px;
+  width: 30px;
+  height: 30px;
+
+  display: block;
+
   fill: currentColor;
 }
 
-.floating-whatsapp:hover {
-  transform: scale(1.08);
-  box-shadow: 0 9px 26px rgba(0, 0, 0, 0.3);
-}
 
 /* ================================
-   FOOTER
-================================ */
-
-footer {
-  background: #0d1924;
-  color: #94a6b5;
-  padding: 24px 0;
-  font-size: 0.82rem;
-}
-
-.footer-wrap {
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
-}
-
-/* ================================
-   MOBILE
+   TABLET / MOBILE
 ================================ */
 
 @media (max-width: 800px) {
+
   .nav {
     display: none;
+
     position: absolute;
+
     left: 0;
     right: 0;
+
     top: 72px;
+
     padding: 18px 20px;
+
     background: white;
+
     border-bottom: 1px solid var(--line);
+
     flex-direction: column;
+
+    gap: 18px;
   }
 
   .nav.open {
@@ -499,6 +680,7 @@ footer {
     display: block;
   }
 
+
   .hero {
     padding-top: 65px;
   }
@@ -507,6 +689,7 @@ footer {
   .two-col,
   .contact-grid {
     grid-template-columns: 1fr;
+
     gap: 42px;
   }
 
@@ -518,19 +701,45 @@ footer {
     width: 220px;
   }
 
+
   .skill-grid {
     grid-template-columns: 1fr 1fr;
   }
 
+
   .timeline-item {
     grid-template-columns: 1fr;
+
     gap: 6px;
   }
+
 }
 
+
+/* ================================
+   SMALL MOBILE
+================================ */
+
 @media (max-width: 520px) {
+
   .container {
-    width: min(calc(100% - 28px), var(--max));
+    width: min(
+      calc(100% - 28px),
+      var(--max)
+    );
+  }
+
+  .hero {
+    padding-top: 50px;
+    padding-bottom: 60px;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.8rem, 15vw, 4rem);
+  }
+
+  .hero-text {
+    font-size: 1rem;
   }
 
   .skill-grid {
@@ -540,20 +749,22 @@ footer {
   .footer-wrap {
     flex-direction: column;
   }
-}
 
-@media (max-width: 600px) {
+  .contact-card a {
+    padding: 18px;
+  }
+
   .floating-whatsapp {
     right: 18px;
     bottom: 18px;
+
     width: 54px;
     height: 54px;
   }
 
   .floating-whatsapp svg {
-    width: 28px !important;
-    height: 28px !important;
-    max-width: 28px;
-    max-height: 28px;
+    width: 28px;
+    height: 28px;
   }
+
 }
